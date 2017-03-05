@@ -243,13 +243,3 @@ class Matriz:
 
 
 
-m=Matriz()
-m.InsertarMatriz("mario@yahoo.com")
-m.InsertarMatriz("marcela@outlook.com")
-m.InsertarMatriz("luis@gmail.com")
-m.InsertarMatriz("yanet@yahoo.com")
-m.InsertarMatriz("carlos@gmail.com")
-m.InsertarMatriz("lorena@gmail.com")
-m.InsertarMatriz("cesar@facebook.com")
-
-print(m.primeroFila.abajo.abajo.derecha.derecha.abajo.correo)
