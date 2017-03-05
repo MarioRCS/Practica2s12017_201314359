@@ -205,7 +205,39 @@ class Matriz:
                         auxatras.derecha=nc
                         nc.derecha=aux
                         nc.abajo=nm
+    def BuscarLetra(self,letra):
+        auxiliar=self.primeroFila
+        listaletra=" "
+        while auxiliar!=None:
+            if letra==auxiliar.inicial:
+                auxiliar2=auxiliar.derecha
+                while auxiliar2!=None:
+                    listaletra+=auxiliar2.correo+"\n"
+                    if auxiliar2.adentro!=None:
+                        auxiliar3=auxiliar2.adentro
+                        while auxiliar3.adentro!=None:
+                            listaletra+=auxiliar3.correo+"\n"
+                            auxiliar3=auxiliar3.adentro
+                    auxiliar2=auxiliar2.derecha
+            auxiliar=auxiliar.abajo
+        return listaletra
 
+    def BuscarDominio(self,dom):
+        aux=self.primeroColumna
+        concatenar=""
+        while aux!=None:
+            if aux.dominio==dom:
+                aux2=aux.abajo
+                while aux2!=None:
+                    concatenar+=aux2.correo+"\n"
+                    if aux2.adentro!=None:
+                        aux3=aux2.adentro
+                        while aux3.adentro!=None:
+                            concatenar+=aux3.correo+"\n"
+                            aux3=aux3.adentro
+                    aux2=aux2.abajo
+            aux=aux.derecha
+        return concatenar
 
 
 
