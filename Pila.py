@@ -21,11 +21,13 @@ class Pila:
             self.primero=np
 
     def pop(self):
+        borrado=""
         if self.primero==None:
-            print("la pila esta vacia")
+            borrado+="la pila esta vacia"
         else:
-            print(str(self.primero.dato)+" "+"fue el dato borrado")
+            borrado+=str(self.primero.dato)+" "+"fue el dato borrado"
             self.primero=self.primero.siguiente
+        return borrado
 
     def MostrarPila(self):
         datospila=""
