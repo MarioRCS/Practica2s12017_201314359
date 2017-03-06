@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
 class NodoFila:
     def __init__(self,inicial):
         self.inicial=inicial
@@ -205,6 +203,7 @@ class Matriz:
                         auxatras.derecha=nc
                         nc.derecha=aux
                         nc.abajo=nm
+
     def BuscarLetra(self,letra):
         auxiliar=self.primeroFila
         listaletra=" "
