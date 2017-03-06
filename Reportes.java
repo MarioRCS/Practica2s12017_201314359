@@ -188,6 +188,36 @@ try {
               
             }
         });
+     
+     
+     btn6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+             String nombre =caja2.getText();
+                    RequestBody formBody = new FormEncodingBuilder()
+                            
+                            .add("dato", nombre)
+                           
+                            .build();
+                    
+                    String r = getString("metodoWeb16", formBody);
+                    //System.out.println(r + "---");
+                    
+                    Graphviz(r,"C:\\Users\\Roberto\\Desktop\\grafo6.pdf");
+
+try {
+     File path = new File ("C:\\Users\\Roberto\\Desktop\\grafo6.pdf");
+     Desktop.getDesktop().open(path);
+}catch (IOException ex) {
+     System.out.println( ex.getMessage());
+}
+                
+                
+                
+                
+            }
+        });
         
     }
      public  String getString(String metodo, RequestBody formBody) {
@@ -239,3 +269,4 @@ try {
 
   }
 }
+
