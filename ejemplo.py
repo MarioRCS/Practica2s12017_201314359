@@ -224,6 +224,80 @@ def hello15():
     #parametro="reporte Generado Exitosamente"
     return regreso
 
+@app.route('/metodoWeb16',methods=['POST'])
+def hello16():
+    texto="digraph{"+"\n"+"node [shape=box];"+"\n"
+    parametro = str(request.form['dato'])
+    regreso="C:/Users/Roberto/Desktop/texto6.txt";
+    outfile = open("C:/Users/Roberto/Desktop/texto6.txt", 'w') 
+    auxiliar=m.primeroColumna
+    while auxiliar!=None:
+            if parametro==auxiliar.dominio:
+                auxiliar2=auxiliar.abajo
+                while auxiliar2!=None:
+                    ident=auxiliar2.correo.split('@')
+                    cadena=ident[0]
+                    dominio=ident[1]
+                    vector=dominio.split('.')
+                    texto+=str(cadena)+str(vector[0])+'[label="'+str(auxiliar2.correo)+'"]; \n'
+                    if auxiliar2.adentro!=None:
+                        auxiliar3=auxiliar2.adentro
+                        while auxiliar3!=None:
+                            profundo=auxiliar3.correo.split('@')
+                            cadena1=profundo[0]
+                            dominio1=profundo[1]
+                            vector1=dominio1.split('.')
+                            texto+=str(cadena1)+str(vector1[0])+'[label="'+str(auxiliar3.correo)+'"]; \n'
+                            auxiliar3=auxiliar3.adentro
+                    auxiliar2=auxiliar2.abajo
+            auxiliar=auxiliar.derecha
+    
+    aux=m.primeroColumna
+    while aux!=None:
+            if parametro==aux.dominio:
+                aux2=aux.abajo
+                while aux2.abajo!=None:
+                    ident=aux2.correo.split('@')
+                    cadena=ident[0]
+                    dominio=ident[1]
+                    vector=dominio.split('.')
+                    ident2=aux2.abajo.correo.split('@')
+                    cadena2=ident2[0]
+                    dominio2=ident2[1]
+                    vector2=dominio2.split('.')
+                    texto+=str(cadena)+str(vector[0])+" -> " +str(cadena2)+str(vector2[0])+"; \n"
+                    if aux2.adentro!=None:
+                        vadentro=aux2.correo.split('@')
+                        nom=vadentro[0]
+                        dom=vadentro[1]
+                        union=dom.split('.')
+                        
+                        vadentro2=aux2.adentro.correo.split('@')
+                        nom2=vadentro2[0]
+                        dom2=vadentro2[1]
+                        union2=dom2.split('.')
+                        texto+=str(nom)+str(union[0])+" -> "+str(nom2)+str(union2[0])+"; \n"
+                        aux3=aux2.adentro
+                        while aux3.adentro!=None:
+                            profundo=aux3.correo.split('@')
+                            cadena1=profundo[0]
+                            dominio1=profundo[1]
+                            vector1=dominio1.split('.')
+                            profundo2=aux3.adentro.split('@')
+                            cadena3=profundo2[0]
+                            dominio3=profundo2[1]
+                            vector3=dominio3.split('.')
+                            texto+=str(cadena1)+str(vector1[0])+" -> "+str(cadena3)+str(vector3[0])+"; \n"
+                            aux3=aux3.adentro
+                    aux2=aux2.abajo
+            aux=aux.derecha
+    
+    
+    texto+="}"
+    outfile.write(texto)
+    outfile.close()
+    #parametro="reporte Generado Exitosamente"
+    return regreso
 
 @app.route("/e")  
 
