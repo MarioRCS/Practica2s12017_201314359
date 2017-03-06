@@ -1,4 +1,3 @@
-
 class NodoCola:
 
     def __init__(self,dato):
@@ -23,11 +22,13 @@ class Cola:
             auxiliar.siguiente=nc
 
     def Desencolar(self):
+        borrado=""
         if self.primero==None:
-            print("La Cola esta Vacia")
+            borrado+="La Cola esta Vacia"
         else:
-            print("dato Desencolado: "+str(self.primero.dato))
+            borrado+="dato Desencolado: "+str(self.primero.dato)
             self.primero=self.primero.siguiente
+        return borrado
 
     def MostrarCola(self):
         muestra=""
@@ -36,3 +37,4 @@ class Cola:
             muestra+=str(auxiliar.dato)+"\n"
             auxiliar=auxiliar.siguiente
         return muestra
+
